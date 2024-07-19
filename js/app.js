@@ -2,10 +2,14 @@ let amigos = [];
 
 function adicionar() {
     let amigo = document.getElementById('nome-amigo');
+    if (amigos.includes(amigo.value)) {
+        alert('Nome já adicionado. Por faovr, digite um nome diferente. :)');
+        return;
+    }
     if (amigo.value == '') {
         alert('Digite o nome do amigo!');
         return;
-    }
+    } 
     let lista = document.getElementById('lista-amigos');
     amigos.push(amigo.value)
 
@@ -20,7 +24,10 @@ function adicionar() {
 function sortear() {
     embaralhar(amigos);
     let sorteio = document.getElementById('lista-sorteio');
-
+    if (amigos.length <= 4) {
+        alert('Adicione ao menos 4 amigos. :)');
+        return;
+    }
     for (let i = 0; i < amigos.length; i++) {
 
         if (i == amigos.length - 1) {
